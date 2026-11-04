@@ -2,9 +2,10 @@
 
 Owner: **Harshini**. Full module guide: [`backend/app/modules/e5_financial_plan/README.md`](../../../../backend/app/modules/e5_financial_plan/README.md)
 
-| File | What it is |
+| Folder | What goes there |
 | --- | --- |
-| `data/estimate_line_model.dart` | Dart class matching the backend's JSON |
-| `data/estimate_line_api.dart` | Calls to `/api/e5/estimate-lines` |
-| `screens/estimate_line_list_screen.dart` | Starter list screen (loading / empty / error) |
-| `widgets/estimate_line_tile.dart` | One row of the list |
+| `data/` | Dart classes matching the backend's JSON, and the calls to `/api/e5/...` (through `ApiClient`) |
+| `screens/` | Full pages. Each shows loading, empty and error states (`shared/widgets/states.dart`) |
+| `widgets/` | Small pieces reused on your screens |
+
+When your first screen exists, point this module's entry in `lib/core/modules.dart` at it (ask the lead to review).

@@ -47,9 +47,8 @@ Day-by-day tasks live in the [team sheet](https://docs.google.com/spreadsheets/d
 └── .github/                 code owners, PR + bug templates, CI checks
 ```
 
-Every module already has **working starter code**: one example table, list/create endpoints, tests,
-and a Flutter screen that lists rows with an **Add sample** button. Open your module's `README.md`,
-run it, read the comments, then change it into the real thing your sheet tasks describe.
+Every module folder is ready but empty: each file starts with a short note saying what goes in it.
+Open your module's `README.md` first, then build it task by task from the sheet.
 
 ## Run it on your laptop
 
@@ -77,7 +76,7 @@ flutter pub get
 flutter run -d chrome
 ```
 
-The home screen lists all 11 modules. Tap yours to open its starter screen.
+The home screen lists all 11 modules. Each shows "Not built yet" until its owner adds a screen.
 
 ## How we work together
 

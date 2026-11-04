@@ -2,9 +2,10 @@
 
 Owner: **Harshini**. Full module guide: [`backend/app/modules/e4_clinical_review/README.md`](../../../../backend/app/modules/e4_clinical_review/README.md)
 
-| File | What it is |
+| Folder | What goes there |
 | --- | --- |
-| `data/review_request_model.dart` | Dart class matching the backend's JSON |
-| `data/review_request_api.dart` | Calls to `/api/e4/review-requests` |
-| `screens/review_request_list_screen.dart` | Starter list screen (loading / empty / error) |
-| `widgets/review_request_tile.dart` | One row of the list |
+| `data/` | Dart classes matching the backend's JSON, and the calls to `/api/e4/...` (through `ApiClient`) |
+| `screens/` | Full pages. Each shows loading, empty and error states (`shared/widgets/states.dart`) |
+| `widgets/` | Small pieces reused on your screens |
+
+When your first screen exists, point this module's entry in `lib/core/modules.dart` at it (ask the lead to review).
