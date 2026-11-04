@@ -2,9 +2,10 @@
 
 Owner: **Pavan**. Full module guide: [`backend/app/modules/e1_case_core/README.md`](../../../../backend/app/modules/e1_case_core/README.md)
 
-| File | What it is |
+| Folder | What goes there |
 | --- | --- |
-| `data/case_model.dart` | Dart class matching the backend's JSON |
-| `data/case_api.dart` | Calls to `/api/e1/cases` |
-| `screens/case_list_screen.dart` | Starter list screen (loading / empty / error) |
-| `widgets/case_tile.dart` | One row of the list |
+| `data/` | Dart classes matching the backend's JSON, and the calls to `/api/e1/...` (through `ApiClient`) |
+| `screens/` | Full pages. Each shows loading, empty and error states (`shared/widgets/states.dart`) |
+| `widgets/` | Small pieces reused on your screens |
+
+When your first screen exists, point this module's entry in `lib/core/modules.dart` at it (ask the lead to review).

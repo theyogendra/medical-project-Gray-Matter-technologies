@@ -19,14 +19,14 @@ Estimate lines in 4 groups with certainty labels, minimum and likely range, extr
 | `frontend/lib/features/e5_financial_plan/widgets/` | Small pieces used on your screens |
 | `docs/modules/E5-financial-plan.md` | Your sketches, data plan, decisions |
 
-## Starter code already here
-- Table `e5_estimate_lines` with columns `case_id`, `group_name`, `label`, `min_amount`, `likely_amount`, `certainty` (plus `id`, `company_id`, `created_at`)
-- API: `GET /api/e5/estimate-lines`, `POST /api/e5/estimate-lines`, `GET /api/e5/estimate-lines/{id}`
-- Tests: create + list, get one, **company separation**, missing fields refused
-- Flutter: a list screen with an **Add sample** button with loading / empty / error states
+## What's here now
+Empty files with a short note at the top saying what goes in each. Nothing is built yet:
+your sheet tasks fill them in, starting with the data plan.
 
-The starter code is an **example of the pattern**, not the final design. Rename and change the fields
-to match the data plan Yogendra approves.
+The shared parts you build on are already in place:
+- `app/core/database.py`: `Base` and `TimestampMixin` for your tables, `get_db` for endpoints
+- `app/core/tenancy.py`: `TenantMixin` and `get_company_id` (company separation)
+- `frontend/lib/core/api_client.dart` and `frontend/lib/shared/widgets/states.dart`
 
 ## How one request flows through your code
 
@@ -44,7 +44,7 @@ Flutter screen (screens/)
 ```bash
 cd backend
 uvicorn app.main:app --reload      # then open http://localhost:8000/docs -> "E5 · Treatment financial plan"
-pytest app/modules/e5_financial_plan
+pytest app/modules/e5_financial_plan   # once you have added tests
 ```
 
 ## First tasks from the sheet

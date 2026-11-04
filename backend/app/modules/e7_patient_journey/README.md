@@ -19,15 +19,14 @@ Family link with one-time code, plain-language stage, phone upload, emergency co
 | `frontend/lib/features/e7_patient_journey/widgets/` | Small pieces used on your screens |
 | `docs/modules/E7-patient-journey.md` | Your sketches, data plan, decisions |
 
-## Starter code already here
-- Table `e7_family_links` with columns `case_id`, `contact_name`, `phone`, `active` (plus `id`, `company_id`, `created_at`)
-- API: `GET /api/e7/family-links`, `POST /api/e7/family-links`, `GET /api/e7/family-links/{id}`
-- Extra endpoint `GET /api/e7/journey/{case_id}`: reads the case from E1 and the consent from E8.
-- Tests: create + list, get one, **company separation**, missing fields refused
-- Flutter: a list screen with an **Add sample** button with loading / empty / error states
+## What's here now
+Empty files with a short note at the top saying what goes in each. Nothing is built yet:
+your sheet tasks fill them in, starting with the data plan.
 
-The starter code is an **example of the pattern**, not the final design. Rename and change the fields
-to match the data plan Yogendra approves.
+The shared parts you build on are already in place:
+- `app/core/database.py`: `Base` and `TimestampMixin` for your tables, `get_db` for endpoints
+- `app/core/tenancy.py`: `TenantMixin` and `get_company_id` (company separation)
+- `frontend/lib/core/api_client.dart` and `frontend/lib/shared/widgets/states.dart`
 
 ## How one request flows through your code
 
@@ -45,7 +44,7 @@ Flutter screen (screens/)
 ```bash
 cd backend
 uvicorn app.main:app --reload      # then open http://localhost:8000/docs -> "E7 · Patient journey"
-pytest app/modules/e7_patient_journey
+pytest app/modules/e7_patient_journey   # once you have added tests
 ```
 
 ## First tasks from the sheet

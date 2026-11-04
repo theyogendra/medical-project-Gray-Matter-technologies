@@ -15,8 +15,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.core.config import ALLOWED_ORIGINS
-from app.core.database import SessionLocal, create_tables
-from app.modules.e0_tenancy import service as tenancy_service
+from app.core.database import create_tables
 from app.modules.e0_tenancy.router import router as e0_router
 from app.modules.e1_case_core.router import router as e1_router
 from app.modules.e2_document_vault.router import router as e2_router
@@ -34,8 +33,6 @@ from app.modules.e10_integrations.router import router as e10_router
 async def lifespan(app: FastAPI):
     # Runs once when the server starts.
     create_tables()
-    with SessionLocal() as db:
-        tenancy_service.ensure_demo_company(db)  # company #1, used until login exists
     yield
 
 

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'modules.dart';
 
 /// Development home screen: one tile per module, so every teammate can open
-/// their own starter screen. The real navigation comes later (E3 workspace, E7 family app).
+/// their own module. The real navigation comes later (E3 workspace, E7 family app).
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -21,7 +21,7 @@ class HomeScreen extends StatelessWidget {
             title: Text(module.title),
             subtitle: Text('Owner: ${module.owner}'),
             trailing: const Icon(Icons.chevron_right),
-            onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: module.builder)),
+            onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: module.open)),
           );
         },
       ),

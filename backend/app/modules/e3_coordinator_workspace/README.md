@@ -19,15 +19,14 @@ Today view, Board view, one-screen case, bulk actions, saved views, speed and ke
 | `frontend/lib/features/e3_coordinator_workspace/widgets/` | Small pieces used on your screens |
 | `docs/modules/E3-coordinator-workspace.md` | Your sketches, data plan, decisions |
 
-## Starter code already here
-- No table of its own yet; it builds `TodayItem` rows (`case_id`, `code`, `patient_name`, `stage`, `next_action`) from another module (see `service.py`).
-- API: `GET /api/e3/today`
-- Shows how to use ANOTHER module: it reads cases through `e1_case_core.service`.
-- Tests: create + list, get one, **company separation**, missing fields refused
-- Flutter: a list screen with loading / empty / error states
+## What's here now
+Empty files with a short note at the top saying what goes in each. Nothing is built yet:
+your sheet tasks fill them in, starting with the data plan.
 
-The starter code is an **example of the pattern**, not the final design. Rename and change the fields
-to match the data plan Yogendra approves.
+The shared parts you build on are already in place:
+- `app/core/database.py`: `Base` and `TimestampMixin` for your tables, `get_db` for endpoints
+- `app/core/tenancy.py`: `TenantMixin` and `get_company_id` (company separation)
+- `frontend/lib/core/api_client.dart` and `frontend/lib/shared/widgets/states.dart`
 
 ## How one request flows through your code
 
@@ -45,7 +44,7 @@ Flutter screen (screens/)
 ```bash
 cd backend
 uvicorn app.main:app --reload      # then open http://localhost:8000/docs -> "E3 · Coordinator workspace"
-pytest app/modules/e3_coordinator_workspace
+pytest app/modules/e3_coordinator_workspace   # once you have added tests
 ```
 
 ## First tasks from the sheet

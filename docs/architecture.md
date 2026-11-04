@@ -22,9 +22,8 @@ screens/  -> data/*_api.dart -> core/api_client.dart  ==HTTP==>  router.py -> se
 1. **Own your folders.** Change only your module folders. Shared code (`core/`, `shared/`, `main.py`) goes
    through the lead.
 2. **Talk through services.** Module A needs module B's data -> `from app.modules.<b> import service`.
-   Examples already in the code: E3 reads E1 cases, E9 reads E2 documents, E7 reads E1 + E8.
 3. **Company separation.** Every company table uses `TenantMixin`; every endpoint uses
-   `Depends(get_company_id)`; every query filters by `company_id`. Each module has a test proving it.
+   `Depends(get_company_id)`; every query filters by `company_id`. Each module should have a test proving it.
 4. **Three screen states.** Loading, empty, error — use `shared/widgets/states.dart`.
 
 ## Module dependencies (who calls whom)

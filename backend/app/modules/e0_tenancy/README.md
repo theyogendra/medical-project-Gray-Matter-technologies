@@ -19,15 +19,14 @@ Sign-up, company account, plans, payment, settings, first run, data export.
 | `frontend/lib/features/e0_tenancy/widgets/` | Small pieces used on your screens |
 | `docs/modules/E0-tenancy.md` | Your sketches, data plan, decisions |
 
-## Starter code already here
-- Table `e0_companies` with columns `name`, `plan`
-- API: `GET /api/e0/companies`, `GET /api/e0/companies/me`, `POST /api/e0/companies`
-- `ensure_demo_company()` creates company #1 when the server starts
-- Tests: create + list, get one, **company separation**, missing fields refused
-- Flutter: a list screen with loading / empty / error states
+## What's here now
+Empty files with a short note at the top saying what goes in each. Nothing is built yet:
+your sheet tasks fill them in, starting with the data plan.
 
-The starter code is an **example of the pattern**, not the final design. Rename and change the fields
-to match the data plan Yogendra approves.
+The shared parts you build on are already in place:
+- `app/core/database.py`: `Base` and `TimestampMixin` for your tables, `get_db` for endpoints
+- `app/core/tenancy.py`: `TenantMixin` and `get_company_id` (company separation)
+- `frontend/lib/core/api_client.dart` and `frontend/lib/shared/widgets/states.dart`
 
 ## How one request flows through your code
 
@@ -45,7 +44,7 @@ Flutter screen (screens/)
 ```bash
 cd backend
 uvicorn app.main:app --reload      # then open http://localhost:8000/docs -> "E0 · Tenancy and onboarding"
-pytest app/modules/e0_tenancy
+pytest app/modules/e0_tenancy   # once you have added tests
 ```
 
 ## First tasks from the sheet

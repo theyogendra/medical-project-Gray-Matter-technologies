@@ -19,14 +19,14 @@ Upload documents, keep originals safe, sort, dates, duplicates, missing-document
 | `frontend/lib/features/e2_document_vault/widgets/` | Small pieces used on your screens |
 | `docs/modules/E2-document-vault.md` | Your sketches, data plan, decisions |
 
-## Starter code already here
-- Table `e2_documents` with columns `case_id`, `file_name`, `doc_type`, `doc_date` (plus `id`, `company_id`, `created_at`)
-- API: `GET /api/e2/documents`, `POST /api/e2/documents`, `GET /api/e2/documents/{id}`
-- Tests: create + list, get one, **company separation**, missing fields refused
-- Flutter: a list screen with an **Add sample** button with loading / empty / error states
+## What's here now
+Empty files with a short note at the top saying what goes in each. Nothing is built yet:
+your sheet tasks fill them in, starting with the data plan.
 
-The starter code is an **example of the pattern**, not the final design. Rename and change the fields
-to match the data plan Yogendra approves.
+The shared parts you build on are already in place:
+- `app/core/database.py`: `Base` and `TimestampMixin` for your tables, `get_db` for endpoints
+- `app/core/tenancy.py`: `TenantMixin` and `get_company_id` (company separation)
+- `frontend/lib/core/api_client.dart` and `frontend/lib/shared/widgets/states.dart`
 
 ## How one request flows through your code
 
@@ -44,7 +44,7 @@ Flutter screen (screens/)
 ```bash
 cd backend
 uvicorn app.main:app --reload      # then open http://localhost:8000/docs -> "E2 · Document vault"
-pytest app/modules/e2_document_vault
+pytest app/modules/e2_document_vault   # once you have added tests
 ```
 
 ## First tasks from the sheet

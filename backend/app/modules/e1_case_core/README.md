@@ -19,14 +19,14 @@ Create cases, case code, owner, tasks, stage time limits, activity log, checklis
 | `frontend/lib/features/e1_case_core/widgets/` | Small pieces used on your screens |
 | `docs/modules/E1-case-core.md` | Your sketches, data plan, decisions |
 
-## Starter code already here
-- Table `e1_cases` with columns `code`, `patient_name`, `country`, `stage`, `owner_name` (plus `id`, `company_id`, `created_at`)
-- API: `GET /api/e1/cases`, `POST /api/e1/cases`, `GET /api/e1/cases/{id}`
-- Tests: create + list, get one, **company separation**, missing fields refused
-- Flutter: a list screen with an **Add sample** button with loading / empty / error states
+## What's here now
+Empty files with a short note at the top saying what goes in each. Nothing is built yet:
+your sheet tasks fill them in, starting with the data plan.
 
-The starter code is an **example of the pattern**, not the final design. Rename and change the fields
-to match the data plan Yogendra approves.
+The shared parts you build on are already in place:
+- `app/core/database.py`: `Base` and `TimestampMixin` for your tables, `get_db` for endpoints
+- `app/core/tenancy.py`: `TenantMixin` and `get_company_id` (company separation)
+- `frontend/lib/core/api_client.dart` and `frontend/lib/shared/widgets/states.dart`
 
 ## How one request flows through your code
 
@@ -44,7 +44,7 @@ Flutter screen (screens/)
 ```bash
 cd backend
 uvicorn app.main:app --reload      # then open http://localhost:8000/docs -> "E1 · Case management core"
-pytest app/modules/e1_case_core
+pytest app/modules/e1_case_core   # once you have added tests
 ```
 
 ## First tasks from the sheet

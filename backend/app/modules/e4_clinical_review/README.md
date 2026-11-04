@@ -19,14 +19,14 @@ Secure doctor review links, doctor opinion form, request more info, compare opin
 | `frontend/lib/features/e4_clinical_review/widgets/` | Small pieces used on your screens |
 | `docs/modules/E4-clinical-review.md` | Your sketches, data plan, decisions |
 
-## Starter code already here
-- Table `e4_review_requests` with columns `case_id`, `doctor_name`, `status`, `expires_at` (plus `id`, `company_id`, `created_at`)
-- API: `GET /api/e4/review-requests`, `POST /api/e4/review-requests`, `GET /api/e4/review-requests/{id}`
-- Tests: create + list, get one, **company separation**, missing fields refused
-- Flutter: a list screen with an **Add sample** button with loading / empty / error states
+## What's here now
+Empty files with a short note at the top saying what goes in each. Nothing is built yet:
+your sheet tasks fill them in, starting with the data plan.
 
-The starter code is an **example of the pattern**, not the final design. Rename and change the fields
-to match the data plan Yogendra approves.
+The shared parts you build on are already in place:
+- `app/core/database.py`: `Base` and `TimestampMixin` for your tables, `get_db` for endpoints
+- `app/core/tenancy.py`: `TenantMixin` and `get_company_id` (company separation)
+- `frontend/lib/core/api_client.dart` and `frontend/lib/shared/widgets/states.dart`
 
 ## How one request flows through your code
 
@@ -44,7 +44,7 @@ Flutter screen (screens/)
 ```bash
 cd backend
 uvicorn app.main:app --reload      # then open http://localhost:8000/docs -> "E4 · Clinical review"
-pytest app/modules/e4_clinical_review
+pytest app/modules/e4_clinical_review   # once you have added tests
 ```
 
 ## First tasks from the sheet

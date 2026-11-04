@@ -19,15 +19,14 @@ Scoped consent, revoke, receipts, server-side access checks, keep period and del
 | `frontend/lib/features/e8_consent_audit/widgets/` | Small pieces used on your screens |
 | `docs/modules/E8-consent-audit.md` | Your sketches, data plan, decisions |
 
-## Starter code already here
-- Table `e8_consents` with columns `case_id`, `scope`, `granted` (plus `id`, `company_id`, `created_at`)
-- API: `GET /api/e8/consents`, `POST /api/e8/consents`, `GET /api/e8/consents/{id}`
-- `has_consent()` in `service.py` is what other modules (E7, E4) call before sharing anything.
-- Tests: create + list, get one, **company separation**, missing fields refused
-- Flutter: a list screen with an **Add sample** button with loading / empty / error states
+## What's here now
+Empty files with a short note at the top saying what goes in each. Nothing is built yet:
+your sheet tasks fill them in, starting with the data plan.
 
-The starter code is an **example of the pattern**, not the final design. Rename and change the fields
-to match the data plan Yogendra approves.
+The shared parts you build on are already in place:
+- `app/core/database.py`: `Base` and `TimestampMixin` for your tables, `get_db` for endpoints
+- `app/core/tenancy.py`: `TenantMixin` and `get_company_id` (company separation)
+- `frontend/lib/core/api_client.dart` and `frontend/lib/shared/widgets/states.dart`
 
 ## How one request flows through your code
 
@@ -45,7 +44,7 @@ Flutter screen (screens/)
 ```bash
 cd backend
 uvicorn app.main:app --reload      # then open http://localhost:8000/docs -> "E8 · Consent and audit"
-pytest app/modules/e8_consent_audit
+pytest app/modules/e8_consent_audit   # once you have added tests
 ```
 
 ## First tasks from the sheet
