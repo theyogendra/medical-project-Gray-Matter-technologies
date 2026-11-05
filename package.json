@@ -1,0 +1,27 @@
+{
+  "name": "medical-web-application",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "apps/web",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace apps/web",
+    "dev:ai": "cd apps/ai && python -m venv .venv && . .venv/Scripts/Activate.ps1 && pip install -r requirements.txt && uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload",
+    "build": "npm run build --workspace apps/web",
+    "lint": "npm run lint --workspace apps/web",
+    "test": "npm run test --workspace apps/web",
+    "prisma:generate": "npx prisma generate --schema database/prisma/schema.prisma",
+    "prisma:migrate": "npx prisma migrate dev --schema database/prisma/schema.prisma",
+    "prisma:push": "npx prisma db push --schema database/prisma/schema.prisma",
+    "prisma:studio": "npx prisma studio --schema database/prisma/schema.prisma",
+    "db:seed": "npx tsx database/prisma/seed.ts"
+  },
+  "devDependencies": {
+    "@prisma/client": "^5.22.0",
+    "concurrently": "^9.2.5",
+    "prisma": "^5.22.0",
+    "tsx": "^4.19.2"
+  }
+}
